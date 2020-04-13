@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navigation from "./components/navigation/navigation";
+import {Route, Switch} from "react-router";
+import Container from "@material-ui/core/Container";
+import Login from "./components/login/login";
+import Register from "./components/register/register";
+import Profile from "./components/Profile/Profile";
+import ProfileEdit from "./components/ProfileEdit/ProfileEdit";
+import AddPost from "./components/AddPost/AddPost";
+import Posts from "./components/Posts/Posts";
+import Subscriptions from "./components/Subscriptions/Subscriptions";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation/>
+      <Container>
+        <Switch>
+          <Route path='/' exact component={Posts}/>
+          <Route path='/login' exact component={Login}/>
+          <Route path='/register' exact component={Register}/>
+          <Route path='/profile' exact component={Profile}/>
+          <Route path='/profile/edit' exact component={ProfileEdit}/>
+          <Route path='/posts/new' exact component={AddPost}/>
+          <Route path='/subscriptions' exact component={Subscriptions}/>
+        </Switch>
+      </Container>
     </div>
   );
 }
