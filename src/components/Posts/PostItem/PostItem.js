@@ -54,14 +54,14 @@ const PostItem = (
         image={`http://localhost:8000/uploads/${image}`}
         title="Paella dish"
       />}
-      {tags && text && <CardContent>
+      <CardContent>
         {text && <Typography variant="body2" color="textSecondary" component="p">
           {text}
         </Typography>}
         {tags && <Box mt={2}>
           {tags.map(tag => <Chip variant="outlined" label={tag} style={{marginRight: '3px'}} key={tag} />)}
         </Box>}
-      </CardContent>}
+      </CardContent>
     </Card>
   );
 };
